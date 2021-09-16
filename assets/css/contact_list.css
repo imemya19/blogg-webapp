@@ -1,0 +1,22 @@
+.contact-book {
+  font-family: 'Courier New', Courier, monospace; }
+
+.left-block {
+  border: 1px solid black; }
+
+.right-block {
+  border: 2px solid black; }
+
+input {
+  border: 2px solid black;
+  margin: 5px;
+  width: 100%; }
+
+form {
+  margin-top: 30%; }
+
+li {
+  background-color: lightpink; }
+
+a {
+  margin: 12px; }

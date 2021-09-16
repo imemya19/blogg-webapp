@@ -1,0 +1,15 @@
+<div>
+    <h1>
+        Header
+    </h1>
+    <p>
+        <%    if(locals.user){%>
+            <a href="/users/timeline">Timeline</a>
+            <a href="/users/signout">Signout</a>
+            <%}else{ %>
+                <a href="/users/signin">SIGN In</a>
+                <a href="/users/signup">Sign Up</a>
+                <%}%>
+    </p>
+
+</div>

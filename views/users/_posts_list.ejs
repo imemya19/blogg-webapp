@@ -1,0 +1,38 @@
+<li id="post-id-<%=p._id%>">
+    <div style=" background-color: mediumspringgreen; margin:10px; padding:10px;">
+        <%    if(locals.user._id == p.author.id){%>
+            <a class="delete-post-button" style="float:right;" href="/users/posts/delete-post/?id=<%=p._id%>">
+                <i class="fas fa-trash"></i>
+            </a>
+            <%}%>
+
+                <p style="color: coral;">
+                    <%= p.content %>
+                </p>
+                <p style="font-weight: bolder; font-size: x-small; ">
+                    -by
+                    <%= p.author.name  %>
+                </p>
+                <div>
+                    <% if(locals.user){%>
+
+                        <form action="/users/posts/comments/add-comment" method="post" id="new-comment-form-postid-<%= p._id%>">
+                            <input type="text" name="content" placeholder="Enter a comment" required>
+                            <input type="hidden" name="post" value="<%= p._id %>">
+
+                            <input type="submit" value="Add comment">
+                        </form>
+                        <%    }%>
+
+                </div>
+
+                <div id="comment-list-container-postid-<%= p._id %>">
+                    <ul>
+                        <%  for(var c of p.comments){%>
+                            <%- include('_comments_list',{c:c,p:p}); %>
+                                <%}%>
+                    </ul>
+                </div>
+    </div>
+
+</li>

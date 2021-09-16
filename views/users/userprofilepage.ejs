@@ -1,0 +1,28 @@
+<!-- <go to index.js and define path for /uploads -->
+div>
+<%if(locals.user){ %>
+    <div>
+        <p>Name:
+            <%= locals.user.name %>
+        </p>
+        <p>Email :
+            <%= locals.user.email %>
+        </p>
+        <p>
+            <img src="<%= user.avatar %>" alt="<%= user.name %>" width="400">
+        </p>
+    </div>
+
+
+    <div>
+        <form action="/users/update-profile/?id=<%= locals.user._id %>" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" value="<%= locals.user.name%>" placeholder="<%= locals.user.name%>">
+            <input type="email" name="email" value="<%= locals.user.email%>" placeholder="<%= locals.user.email%>">
+
+            <input type="file" name="avatar" placeholder="Profile Picture">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+    <%  }%>
+
+        </div>

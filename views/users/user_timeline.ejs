@@ -1,0 +1,35 @@
+<div>
+    <p>
+        here will be posts and comments of all users. The logged in user can create his post or add comments to other posts.
+    </p>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h3>Create a new post!</h3>
+            <% if(locals.user){%>
+                <div class="col-6">
+                    <form action="/users/posts/create-post" method="post" id="new-post-form">
+                        <input type="text" name="content" placeholder="Enter post content here!" required>
+                        <input type="hidden" name="author" value="<%=locals.user._id%>">
+                        <input type="submit" value="Add Post">
+                    </form>
+
+                </div>
+                <%    }%>
+
+                    <div class="col-6" id="post-list-container">
+                        <ul>
+                            <% for( var p of post_list){%>
+                                <%- include("_posts_list",{p:p}); %>
+
+                                    <%  }%>
+                        </ul>
+
+                    </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="/js/comments_ajax.js"></script>
+<script src="/js/posts_ajax.js"></script>

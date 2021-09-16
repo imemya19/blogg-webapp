@@ -1,0 +1,17 @@
+<li id="comment-id-<%= c._id %>">
+    <div style="background-color: cornsilk;">
+
+        <%    if(locals.user._id == c.author.id){%>
+
+            <a class="delete-comment-button" style="float:right;" href="/users/posts/comments/delete-comment/?id=<%=c._id%>">
+                <i class="fas fa-times"></i>
+            </a>
+            <%    }%>
+
+                <p style="font-weight: bolder; font-size: x-small; ">
+                    <%= c.content %>
+                        <small>-by  <%= c.author.name %> </small>
+
+                </p>
+    </div>
+</li>

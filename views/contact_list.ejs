@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/contact_list.css">
+
+
+
+<div class="container-fluid">
+    <div class="row contact-book">
+        <div class="col-md-4 left-block">
+            <form action="/contact_list/add-contact" method="post">
+                <input type="text" name="name" placeholder="Enter name of contact">
+                <input type="number" name="phone" placeholder="Enter phone of contact">
+                <input type="submit" value="Add contact">
+            </form>
+        </div>
+
+
+        <div class="col-md-8 right-block">
+            <p>Here is the list of contacts in your contact book!</p>
+            <ol>
+                <%  for(var c of contact_list){ %>
+                    <li>
+                        <p>
+                            Name:
+                            <%= c.name %>
+                                <a href="/contact_list/delete-contact?id=<%= c.id %>">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+
+
+
+                        </p>
+                        <p> Phone:
+                            <%= c.phone %>
+                        </p>
+                    </li>
+                    <% } %>
+
+            </ol>
+        </div>
+
+    </div>
+</div>
